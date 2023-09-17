@@ -1,0 +1,356 @@
+body {
+  --backGround-color: hsl(223, 19%, 93%);
+  --comments-backGround-color: white;
+  --voteText-color: hsl(238, 40%, 52%);
+  --commentName-color: hsl(212, 24%, 26%);
+  --date-color: hsl(211, 10%, 45%);
+  --cancelButton-color: hsl(211, 10%, 45%);
+}
+
+textarea,
+button {
+  padding: 0;
+}
+
+main {
+  background-color: var(--backGround-color);
+  padding: 3.5% 2%;
+  min-height: 100dvh;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.container {
+  padding-bottom: max(15px, 3%);
+}
+.commentItems .inputContainer {
+  margin-top: 1%;
+}
+
+.commentItemContainer {
+  background-color: var(--comments-backGround-color);
+  padding: max(14px, 3.5%);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "one two three";
+  align-items: start;
+}
+
+.commentItem_1 {
+  background-color: var(--backGround-color);
+  width: 30px;
+  padding: 10px 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-radius: 7px;
+  margin-right: 20px;
+  grid-area: one;
+}
+.commentItem_1 p {
+  color: var(--voteText-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: -3px;
+}
+
+.commentItem_1 span {
+  cursor: pointer;
+}
+.commentItem_1 svg {
+  transition: all 350ms;
+}
+.commentItem_1 svg:hover {
+  fill: var(--voteText-color);
+}
+
+.commentItem_2 {
+  grid-area: two;
+  grid-column: 2/4;
+  grid-row: 1;
+  width: 100%;
+}
+.commentItem_2 > p > span {
+  color: var(--voteText-color);
+  padding: 2px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.commentItem_2 div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+.commentItem_2 div p:nth-child(2) {
+  color: var(--commentName-color);
+  font-weight: 500;
+}
+
+.commentItem_2_4 {
+  color: var(--date-color);
+  font-size: 0.8rem;
+  padding-top: 1px;
+}
+
+.commentItem_2 > div p:nth-child(4) {
+  color: var(--date-color);
+  font-size: 0.8rem;
+}
+
+.commentItem_2_3 {
+  color: white;
+  background-color: var(--voteText-color);
+  font-size: 0.7rem;
+  padding: 0px 6px;
+  margin-left: -8px;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.commentItem_2 img {
+  width: 29px;
+}
+
+.commentItemContainer div:nth-child(3) {
+  /* grid-column: 3/4;
+  grid-row: 1; */
+  grid-area: three;
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+  gap: 16px;
+  cursor: pointer;
+}
+.commentItemContainer div:nth-child(3) div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.container .commentItemContainer .commentItem_3 {
+  padding: 0;
+  padding-top: 2px;
+}
+
+.commentItemContainer div:nth-child(3) :where(div):active {
+  opacity: 0.5;
+}
+
+.commentItemContainer div:nth-child(3) p {
+  color: var(--voteText-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.commentItem_3 div:nth-child(1) p {
+  color: red;
+}
+@media (max-width: 589px) {
+  .commentItemContainer {
+    grid-template-areas:
+      "two  two"
+      "one three";
+    justify-items: start;
+    row-gap: 15px;
+  }
+
+  .commentItem_1 {
+    flex-direction: row;
+    width: 87px;
+  }
+  .commentItem_2 {
+    grid-column: 1/3;
+    grid-row: 1;
+  }
+  .commentItemContainer div:nth-child(3) {
+    align-self: center;
+    justify-self: end;
+    padding-bottom: 6px;
+  }
+}
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* CommentInputs */
+.commentItem_2 .edit {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.commentItem_2 .edit div:nth-child(1) {
+  display: none;
+}
+.commentItem_2 .edit button {
+  align-self: flex-end;
+}
+
+.inputContainer {
+  gap: 15px;
+}
+
+.inputContainer div {
+  grid-area: one;
+}
+
+.inputContainer img {
+  min-width: 30px;
+  width: 37px;
+  object-fit: cover;
+}
+
+.inputContainer textarea {
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  padding: 6px 16px;
+  border-radius: 7px;
+  border: 1px solid #cccc;
+  grid-area: two;
+  cursor: pointer;
+  width: 100%;
+  min-height: 90px;
+  height: max-content;
+  display: block;
+}
+
+.inputContainer textarea:focus {
+  border: 1px solid var(--date-color);
+}
+
+.inputContainer button {
+  border: none;
+  background-color: var(--voteText-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  grid-area: three;
+  cursor: pointer;
+}
+.inputContainer button:active {
+  opacity: 0.5;
+}
+.inputContainer span {
+  display: block;
+  border: 1px solid var(--date-color);
+  outline: none;
+  padding: 6px 16px;
+  border-radius: 7px;
+
+  grid-area: two;
+  cursor: pointer;
+  width: 100%;
+  min-height: 90px;
+}
+
+@media (max-width: 589px) {
+  .inputContainer {
+    gap: 0;
+    row-gap: 15px;
+  }
+  .inputContainer textarea {
+    width: 100%;
+    min-height: 90px;
+  }
+  .inputContainer button {
+    justify-self: end;
+  }
+}
+
+/* MODAL  */
+/*  */
+/*  */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  display: grid;
+  place-items: center;
+}
+
+.modal__container {
+  width: clamp(300px, 37%, 334px);
+  padding: 25px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.modal__container h3 {
+  color: var(--commentName-color);
+  font-weight: 500;
+  padding-bottom: 13px;
+}
+
+.modal__container p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+  padding-bottom: 18px;
+  color: var(--date-color);
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.modal__buttons button {
+  cursor: pointer;
+  border: none;
+  padding: 10px clamp(16px, 2vw, 22px);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+
+  color: white;
+  transition: opacity 250ms;
+}
+
+.modal__buttons button:nth-child(1) {
+  background-color: var(--cancelButton-color);
+}
+
+.modal__buttons button:nth-child(2) {
+  background-color: hsl(358, 79%, 66%);
+}
+.modal__buttons button:active {
+  opacity: 0.5;
+}
+
+/* reply items */
+/*  */
+/*  */
+.replyItem {
+  display: grid;
+  grid-template-columns: min(73px, 5vw) 1fr;
+  padding-top: 3.5%;
+}
+.replyItem > div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+}
+.replyItem > div:nth-child(1)::before {
+  border-left: 2px solid #cccc;
+  height: 100%;
+
+  content: "";
+  display: block;
+}
+
+.replyItem > div:nth-child(2) > div:nth-child(1) {
+  padding-top: 0;
+}
+.replyItem .container {
+  padding-top: 3.5%;
+  padding-bottom: 0;
+}
+
+@media (max-width: 380px) {
+  .replyItem > div:nth-child(1) {
+    justify-content: start;
+  }
+}
