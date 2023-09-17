@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://github.com/TANJIRWEBDEV/Interactive-comments-section
 - Live Site URL: https://lucent-otter-61f684.netlify.app/
 
 ## My process
